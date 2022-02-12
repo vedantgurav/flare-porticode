@@ -37,7 +37,10 @@ const Interests: NextPage = () => {
                 <div className="flex w-full flex-grow flex-col justify-center overflow-y-scroll">
                     {roomInterests.interestList.map((interest, index) => {
                         return (
-                            <div key={index} className="flex justify-center">
+                            <div
+                                key={interest.id}
+                                className="flex justify-center"
+                            >
                                 <div
                                     className={`relative my-2 flex cursor-pointer rounded-lg border-2 border-gray-300 py-2 text-center text-lg transition-all ${
                                         selectionList.includes(interest.id)
