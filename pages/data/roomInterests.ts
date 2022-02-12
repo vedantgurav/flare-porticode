@@ -27,4 +27,5 @@ export const flareData: flare = {
     name: "Football",
     shape: 0,
     color: 0,
+    persons: [],
 };
