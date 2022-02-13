@@ -12,28 +12,28 @@ import { personGroups, personsList } from "../../../../data/persons";
 import { rooms } from "../../../../data/roomInterests";
 import { addFriend } from "../../../../functions/api";
 
-const Interests: NextPage = () => {
+const Shapes: NextPage = () => {
     const router = useRouter();
-    const { roomid, shapeid } = router.query;
+    const { roomid = 0, shapeid = 0 } = router.query;
     const room = rooms.filter((room) => {
-        return room.id == roomid;
+        return room?.id === roomid;
     })[0];
-    const interest = room.interestList.filter((interest) => {
-        return interest.id === shapeid;
+    const interest = room?.interestList.filter((interest) => {
+        return interest?.id === shapeid;
     })[0];
     const [selectionList, setSelectionList] = useState<string[]>([]);
     const [showParticipants, setShowParticipants] = useState(false);
     const [shape, setShape] = useState(
-        parseInt(`${interest.id}`.charAt(0)) ?? 0
+        parseInt(`${interest?.id}`.charAt(0)) ?? 0
     );
     const [color, setColor] = useState(
-        parseInt(`${interest.id}`.charAt(1)) ?? 0
+        parseInt(`${interest?.id}`.charAt(1)) ?? 0
     );
 
     const personsList = personGroups[shape === 0 ? 0 : 1];
 
     const toggleSelection = (id: string) => {
-        console.log(selectionList, id, selectionList.includes(id));
+        // console.log(selectionList, id, selectionList.includes(id));
         if (selectionList.includes(id)) {
             setSelectionList(
                 selectionList.filter((selectedId) => selectedId != id)
@@ -47,6 +47,8 @@ const Interests: NextPage = () => {
     const toggleParticipants = () => {
         setShowParticipants(!showParticipants);
     };
+
+    if (!room) return <></>;
 
     return (
         <div
@@ -115,10 +117,10 @@ const Interests: NextPage = () => {
                             {personsList.map((person) => {
                                 return (
                                     <div
-                                        key={person.id}
+                                        key={person?.id}
                                         className="flex items-center border-b px-2 py-3"
                                         onClick={() =>
-                                            toggleSelection(person.id)
+                                            toggleSelection(person?.id)
                                         }
                                     >
                                         <div className="mr-4 h-10 w-10 rounded-full bg-gray-100"></div>
@@ -127,7 +129,7 @@ const Interests: NextPage = () => {
                                         </p>
                                         <div className="">
                                             {selectionList.includes(
-                                                person.id
+                                                person?.id
                                             ) ? (
                                                 <svg
                                                     className="h-6 w-6 text-green-500"
@@ -167,4 +169,4 @@ const Interests: NextPage = () => {
     );
 };
 
-export default Interests;
+export default Shapes;

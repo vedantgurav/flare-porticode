@@ -7,13 +7,13 @@ import { rooms } from "../../data/roomInterests";
 
 const Interests: NextPage = () => {
     const router = useRouter();
-    const { roomid } = router.query;
+    const { roomid = 0 } = router.query;
     const [selectionList, setSelectionList] = useState<string[]>([]);
     const room = rooms.filter((room) => {
-        return room.id == roomid;
+        return room.id === roomid;
     })[0];
     const toggleSelection = (id: string) => {
-        console.log(selectionList, id, selectionList.includes(id));
+        // console.log(selectionList, id, selectionList.includes(id));
         if (selectionList.includes(id)) {
             setSelectionList(
                 selectionList.filter((selectedId) => selectedId != id)
@@ -24,9 +24,9 @@ const Interests: NextPage = () => {
     };
 
     const getRandom = () => {
-        let shape = Math.floor(Math.random() * 2);
-        let color = Math.floor(Math.random() * 5);
-        return `${shape}${color}`;
+        return room.interestList[
+            Math.floor(Math.random() * room.interestList.length)
+        ].id;
     };
 
     const getTopic = () => {
@@ -34,11 +34,14 @@ const Interests: NextPage = () => {
         return selectionList[Math.floor(Math.random() * 2)];
     };
 
+    if (!room || !room.interestList.length) return <></>;
+
     return (
         <div className="h-screen bg-white px-4 pb-16">
             <Head>
                 <title>Flare — Room</title>
                 <meta name="description" content="Flare — Rooms" />
+                <meta name="theme-color" content="#ffffff" />;
             </Head>
 
             <main className="flex h-full flex-col items-center justify-between pt-6">

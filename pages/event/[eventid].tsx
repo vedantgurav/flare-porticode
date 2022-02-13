@@ -159,7 +159,7 @@ const Home: NextPage = () => {
 
                     <div className="absolute inset-x-0 bottom-0 grid w-full grid-cols-2 justify-center space-x-4 px-6 pb-16">
                         <button
-                            className={`rounded-lg border-2 border-gray-900 px-4 py-3 text-center text-2xl font-medium text-gray-900 ${
+                            className={`rounded-lg border-2 border-gray-900 px-4 py-3 text-center text-xl font-medium text-gray-900 ${
                                 rsvp ? "" : ""
                             }`}
                             onClick={() => setRsvp(!rsvp)}
@@ -168,7 +168,7 @@ const Home: NextPage = () => {
                         </button>
 
                         <Link href={`/room/${eventid}`}>
-                            <a className="rounded-lg border-2 border-cyan-500 bg-cyan-500 px-4 py-3 text-center text-2xl font-medium text-white">
+                            <a className="rounded-lg border-2 border-cyan-500 bg-cyan-500 px-4 py-3 text-center text-xl font-medium text-white">
                                 Join
                             </a>
                         </Link>
