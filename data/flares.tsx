@@ -31,3 +31,12 @@ export const flareColors = [
     "bg-pink-400",
     "bg-purple-700",
 ];
+
+export const flareColorsHex = [
+    "#B91C1C",
+    "#2563EB",
+    "#16A34A",
+    "#FDE047",
+    "#F472B6",
+    "#7E22CE",
+];

@@ -20,3 +20,17 @@ export type person = {
     id: string;
     name: string;
 };
+
+export type event = {
+    id: string;
+    name: string;
+    date: string;
+    details: eventDetail;
+};
+
+export type eventDetail = {
+    title: string;
+    description: JSX.Element | string;
+    price: number;
+    location: string;
+};

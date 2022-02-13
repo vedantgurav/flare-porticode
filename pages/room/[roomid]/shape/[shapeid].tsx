@@ -2,16 +2,35 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { flareShapes, flareColors } from "../data/flares";
-import { personsList } from "../data/persons";
-import { roomInterests } from "../data/roomInterests";
+import { useState } from "react";
+import {
+    flareShapes,
+    flareColors,
+    flareColorsHex,
+} from "../../../../data/flares";
+import { personGroups, personsList } from "../../../../data/persons";
+import { rooms } from "../../../../data/roomInterests";
+import { addFriend } from "../../../../functions/api";
 
 const Interests: NextPage = () => {
     const router = useRouter();
-    // const { roomid } = router.query;
+    const { roomid, shapeid } = router.query;
+    const room = rooms.filter((room) => {
+        return room.id == roomid;
+    })[0];
+    const interest = room.interestList.filter((interest) => {
+        return interest.id === shapeid;
+    })[0];
     const [selectionList, setSelectionList] = useState<string[]>([]);
     const [showParticipants, setShowParticipants] = useState(false);
+    const [shape, setShape] = useState(
+        parseInt(`${interest.id}`.charAt(0)) ?? 0
+    );
+    const [color, setColor] = useState(
+        parseInt(`${interest.id}`.charAt(1)) ?? 0
+    );
+
+    const personsList = personGroups[shape === 0 ? 0 : 1];
 
     const toggleSelection = (id: string) => {
         console.log(selectionList, id, selectionList.includes(id));
@@ -22,31 +41,63 @@ const Interests: NextPage = () => {
             return;
         }
         setSelectionList([...selectionList, id]);
+        addFriend("");
     };
 
     const toggleParticipants = () => {
         setShowParticipants(!showParticipants);
     };
 
-    // useEffect(() => {}, []);
-
     return (
-        <div className={`relative h-screen overflow-hidden ${flareColors[5]}`}>
+        <div
+            className={`relative h-screen overflow-hidden ${flareColors[color]}`}
+            onClick={() => {
+                if (process.env.NODE_ENV === "development" && false)
+                    setColor((color + 1) % flareColors.length);
+            }}
+        >
             <Head>
-                <title>Shapes — Flare</title>
-                <meta name="description" content="Shapes for Porticode" />
-                <link rel="icon" href="/favicon.ico" />
+                <title>Flare — Shapes</title>
+                <meta name="description" content="Flare — Shapes" />
+                <meta name="theme-color" content={flareColorsHex[color]} />
             </Head>
 
             <main className="flex h-full flex-col items-center justify-between pt-6">
-                <div className="flex w-full flex-grow animate-pulse flex-col justify-center pb-48">
-                    {flareShapes[0]}
+                <button
+                    className="ml-4 flex h-12 w-12 items-center justify-center self-start rounded-xl bg-gray-900 bg-opacity-60"
+                    onClick={() => router.back()}
+                >
+                    <svg
+                        className="h-10 w-10"
+                        fill={flareColorsHex[color]}
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                        ></path>
+                    </svg>
+                </button>
+
+                <h1 className="px-4 py-4 text-3xl font-bold text-white">
+                    {interest.name}
+                </h1>
+                <div
+                    className="flex w-full flex-grow animate-pulse flex-col justify-center pb-72"
+                    onClick={() => {
+                        if (process.env.NODE_ENV === "development" && false)
+                            setShape((shape + 1) % flareShapes.length);
+                    }}
+                >
+                    {flareShapes[shape]}
                 </div>
                 <div
-                    className={`absolute inset-x-0 top-full transform px-2 transition-all ${
+                    className={`absolute inset-x-0 top-full transform transition-all ${
                         showParticipants
-                            ? "h-[90vh -translate-y-full"
-                            : "-translate-y-24"
+                            ? "h-[90vh -translate-y-full px-2"
+                            : "-translate-y-24 px-4"
                     }`}
                 >
                     <div className="rounded-t-lg bg-white px-4 pb-4">
@@ -65,7 +116,7 @@ const Interests: NextPage = () => {
                                 return (
                                     <div
                                         key={person.id}
-                                        className="flex items-center  border-b px-2 py-3"
+                                        className="flex items-center border-b px-2 py-3"
                                         onClick={() =>
                                             toggleSelection(person.id)
                                         }
