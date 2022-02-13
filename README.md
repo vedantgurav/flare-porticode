@@ -1,3 +1,5 @@
+Visit [Flare](https://flare-18.vercel.app)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -12,23 +14,25 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Inspiration
+The inspiration behind this app comes from our personal experiences when we first joined UCL. We all have inhibitions and hesitations before approaching other fellow students, in order to start new friendships or professional networking for that matter.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## What it does
+When a student in UCL joins UCL Clubs and Societies, they get email notifications about the different events being organised by these socieities. We wanted to cash-in on this opportunity, where people gather based on certain common interests, to help break the ice and give the students enough information that they need to start a small talk.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## How we built it
+We followed a design thinking approach, which involves 5 stages: Empathise-Define-Ideate-Prototype-Test
+1. Empathize: Since the app is based on our own experiences as the students, we started with brainstorming about the problems that we face as students in UCL.
+2. Define: We came up with a host of issues and singled out on one idea using the Harris Profile.
+3. Ideate: In this phase, we came up with low fidelity paper prototypes to figure out what screens and user flows would we include in the app.
+4. Prototype: We built high-fidelity wireframes/ visual designs using Figma and converted it into a clickable prototype. Parallelly, we started with the development phase and started coding the app using next.js with mock-apis serving as the backend.
+5. Test: We tested the app within the team. Some amount of bias might have cropped up in this stage but given the time constraints, this was the best approach to be followed at this stage.
 
-## Learn More
+## Challenges we ran into
+Since this is a novel solution, there was no scope for competitor analysis. Also, the time constraints did not allow for extensive user research or proper usability testing. In fact, we had to build quick iterations without sufficient feedback.
 
-To learn more about Next.js, take a look at the following resources:
+## Accomplishments that we're proud of
+The fact that we were able to build out a high-fidelity clickable prototype and code a basic functional app, in less than 24 hours, is in itself a huge feat.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## What's next for shapesPorticode
+This app can further be scaled to include events outside the UCL context. There can be a further segregation of events and interests to use the app for personal or professional networking. Using ML frameworks, the app can learn from your past connections and chosen interests to suggest you filtered events and potential connections. There is also enough scope to extend this app to include the AR/VR/XR modalities.
