@@ -13,7 +13,7 @@ export const personsList: person[] = [
         id: "h8347g",
         name: "Adenkule",
     },
-    { id: "874sghe48o", name: "Mohammed" },
+    { id: "874sghe48o", name: "Mohammad" },
     { id: "er9v7g4h", name: "Vedant" },
 ];
 
@@ -36,6 +36,6 @@ export const personGroups: person[][] = [
             id: "h8347g",
             name: "Adenkule",
         },
-        { id: "874sghe48o", name: "Mohammed", image: "/photos/mohammad.jpeg" },
+        { id: "874sghe48o", name: "Mohammad", image: "/photos/mohammad.jpeg" },
     ],
 ];
