@@ -113,7 +113,7 @@ const Shapes: NextPage = () => {
                             ></div>
                         </div>
                         <p className="text-xl font-bold">Participants</p>
-                        <div className="mt-10 h-full overflow-scroll">
+                        <div className="mt-10 h-full overflow-scroll pb-10">
                             {personsList.map((person) => {
                                 return (
                                     <div
@@ -123,8 +123,22 @@ const Shapes: NextPage = () => {
                                             toggleSelection(person?.id)
                                         }
                                     >
-                                        <div className="mr-4 h-10 w-10 rounded-full bg-gray-100"></div>
-                                        <p className="flex-grow">
+                                        <div
+                                            className="mr-4 h-12 w-12 rounded-full"
+                                            style={
+                                                person.image
+                                                    ? {
+                                                          backgroundImage: `url(${person.image})`,
+                                                          backgroundSize:
+                                                              "cover",
+                                                      }
+                                                    : {
+                                                          backgroundColor:
+                                                              "#ccc",
+                                                      }
+                                            }
+                                        ></div>
+                                        <p className="flex-grow text-xl">
                                             {person.name}
                                         </p>
                                         <div className="">

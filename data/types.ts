@@ -19,6 +19,7 @@ export type roomInterestList = {
 export type person = {
     id: string;
     name: string;
+    image?: string;
 };
 
 export type event = {

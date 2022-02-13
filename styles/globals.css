@@ -9,6 +9,7 @@
 
 html,
 body {
+    font-size: small;
     padding: 0;
     margin: 0;
     font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
