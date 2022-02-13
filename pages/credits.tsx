@@ -54,24 +54,24 @@ const Home: NextPage = () => {
                             Vedant Gurav
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://ashishgoyal.in">
                         <a target="_blank" className={linkStyle}>
                             Ashish Goyal
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://www.linkedin.com/in/ambikasharma1439/">
                         <a target="_blank" className={linkStyle}>
                             Ambika Sharma
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://www.linkedin.com/in/mohammad-shoraka">
                         <a target="_blank" className={linkStyle}>
-                            Mohammad
+                            Mohammad Shoraka
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://www.linkedin.com/in/awodele/">
                         <a target="_blank" className={linkStyle}>
-                            Adekunle
+                            Adekunle Awodele
                         </a>
                     </Link>
                 </main>

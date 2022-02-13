@@ -83,11 +83,14 @@ const Shapes: NextPage = () => {
                     </svg>
                 </button>
 
-                <h1 className="px-4 py-4 text-3xl font-bold text-white">
+                <h1 className="px-4 pt-4 text-3xl font-bold text-white">
                     {interest.name}
                 </h1>
+                <p className="px-4 py-2 text-xl font-medium text-gray-200">
+                    Hold up the Flare
+                </p>
                 <div
-                    className="flex w-full flex-grow animate-pulse flex-col justify-center pb-72"
+                    className="flex w-full flex-grow animate-pulse flex-col justify-center pb-96"
                     onClick={() => {
                         if (process.env.NODE_ENV === "development" && false)
                             setShape((shape + 1) % flareShapes.length);
@@ -102,7 +105,7 @@ const Shapes: NextPage = () => {
                             : "-translate-y-24 px-4"
                     }`}
                 >
-                    <div className="rounded-t-lg bg-white px-4 pb-4">
+                    <div className="rounded-t-lg bg-white px-6 pb-4">
                         <div
                             className="h-8 w-full py-6"
                             onClick={toggleParticipants}
@@ -112,7 +115,7 @@ const Shapes: NextPage = () => {
                                 onClick={toggleParticipants}
                             ></div>
                         </div>
-                        <p className="text-xl font-bold">Participants</p>
+                        <p className="text-2xl font-bold">Participants</p>
                         <div className="mt-10 h-full overflow-scroll pb-10">
                             {personsList.map((person) => {
                                 return (
@@ -138,9 +141,16 @@ const Shapes: NextPage = () => {
                                                       }
                                             }
                                         ></div>
-                                        <p className="flex-grow text-xl">
-                                            {person.name}
-                                        </p>
+                                        <div className="flex-grow">
+                                            <p className="text-xl font-medium text-gray-900">
+                                                {person.name}
+                                            </p>
+                                            {person.headline && (
+                                                <p className="text-sm font-medium text-gray-400">
+                                                    {person.headline}
+                                                </p>
+                                            )}
+                                        </div>
                                         <div className="">
                                             {selectionList.includes(
                                                 person?.id

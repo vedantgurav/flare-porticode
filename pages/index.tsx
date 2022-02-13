@@ -124,7 +124,7 @@ const Home: NextPage = () => {
                                 Home
                             </a>
                         </Link>
-                        <Link href="/profile">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-100 duration-300 ${
                                     menu ? "" : "-translate-x-64"
@@ -133,7 +133,7 @@ const Home: NextPage = () => {
                                 Profile
                             </a>
                         </Link>
-                        <Link href="/settings">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-150 duration-300 ${
                                     menu ? "" : "-translate-x-64"
@@ -142,7 +142,7 @@ const Home: NextPage = () => {
                                 Settings
                             </a>
                         </Link>
-                        <Link href="/logout">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-200 duration-300 ${
                                     menu ? "" : "-translate-x-64"

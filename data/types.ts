@@ -20,6 +20,7 @@ export type person = {
     id: string;
     name: string;
     image?: string;
+    headline?: string;
 };
 
 export type event = {
