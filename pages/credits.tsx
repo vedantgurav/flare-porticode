@@ -7,6 +7,7 @@ import { eventsList } from "../data/events";
 const Home: NextPage = () => {
     const [menu, setMenu] = useState(false);
     const [themeColor, setThemeColor] = useState("#111827");
+    const linkStyle = "text-2xl my-3 underline";
 
     const toggleMenu = () => {
         setThemeColor(menu ? "#111827" : "#ffffff");
@@ -16,9 +17,7 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Flare</title>
-                <meta name="description" content="Flare — Porticode 5.0" />
-                <link rel="icon" href="/icons/favicon.ico" />
+                <title>Flare — Credits</title>
                 <meta name="theme-color" content={themeColor} />;
             </Head>
 
@@ -47,49 +46,36 @@ const Home: NextPage = () => {
                     </Link>
                 </header>
                 <h1 className="border-b-[6px] border-cyan-600 bg-gray-900 px-4 py-4 text-2xl font-semibold text-white">
-                    UCL Events For You
+                    Credits
                 </h1>
-                <main className="relative flex-grow overflow-scroll bg-white px-6 pt-6 pb-32">
-                    {eventsList.map((event) => {
-                        const date = new Date(event.date);
-                        return (
-                            <Link key={event.id} href={`/event/${event.id}`}>
-                                <a className="block border-b bg-white py-4">
-                                    <div className="flex justify-between">
-                                        <p className="text-xl font-semibold">
-                                            {event.name}
-                                        </p>
-                                        <svg
-                                            className="h-6 w-6 text-gray-900"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                clipRule="evenodd"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <p className="text-lg font-semibold text-gray-400">
-                                        {date.getDate()}/
-                                        {("0" + (date.getMonth() + 1)).slice(
-                                            -2
-                                        )}
-                                    </p>
-                                </a>
-                            </Link>
-                        );
-                    })}
-                </main>
-                <div className="absolute inset-x-0 bottom-0 flex w-full justify-center border-t bg-white pb-10 pt-6">
-                    <Link href="/room/1">
-                        <a className="rounded-lg bg-cyan-500 px-4 py-3 text-2xl font-bold text-white">
-                            Join a Room
+                <main className="flex flex-grow flex-col items-center justify-center overflow-scroll bg-white px-6 pt-24 pb-32">
+                    <Link href="https://www.vedantgurav.com">
+                        <a target="_blank" className={linkStyle}>
+                            Vedant Gurav
                         </a>
                     </Link>
-                </div>
+                    <Link href="/">
+                        <a target="_blank" className={linkStyle}>
+                            Ashish Goyal
+                        </a>
+                    </Link>
+                    <Link href="/">
+                        <a target="_blank" className={linkStyle}>
+                            Ambika Sharma
+                        </a>
+                    </Link>
+                    <Link href="/">
+                        <a target="_blank" className={linkStyle}>
+                            Mohammad
+                        </a>
+                    </Link>
+                    <Link href="/">
+                        <a target="_blank" className={linkStyle}>
+                            Adekunle
+                        </a>
+                    </Link>
+                </main>
+
                 <div
                     className={`absolute inset-0 flex h-screen w-screen flex-col justify-between bg-white px-6 py-16 transition ${
                         menu ? "" : "-translate-x-full"
@@ -124,7 +110,7 @@ const Home: NextPage = () => {
                                 Home
                             </a>
                         </Link>
-                        <Link href="/profile">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-100 duration-300 ${
                                     menu ? "" : "-translate-x-64"
@@ -133,7 +119,7 @@ const Home: NextPage = () => {
                                 Profile
                             </a>
                         </Link>
-                        <Link href="/settings">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-150 duration-300 ${
                                     menu ? "" : "-translate-x-64"
@@ -142,7 +128,7 @@ const Home: NextPage = () => {
                                 Settings
                             </a>
                         </Link>
-                        <Link href="/logout">
+                        <Link href="/">
                             <a
                                 className={`ease block py-2 transition-transform delay-200 duration-300 ${
                                     menu ? "" : "-translate-x-64"
