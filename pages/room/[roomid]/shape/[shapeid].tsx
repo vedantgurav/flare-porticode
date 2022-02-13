@@ -156,7 +156,7 @@ const Shapes: NextPage = () => {
                                                 person?.id
                                             ) ? (
                                                 <svg
-                                                    className="h-6 w-6 text-green-500"
+                                                    className="h-8 w-8 text-green-500"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ const Shapes: NextPage = () => {
                                                 </svg>
                                             ) : (
                                                 <svg
-                                                    className="h-6 w-6 text-gray-400"
+                                                    className="h-8 w-8 text-gray-400"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
