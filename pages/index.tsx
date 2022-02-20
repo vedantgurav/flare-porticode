@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     };
 
     return (
-        <>
+        <div className="relative mx-auto max-w-lg overflow-hidden">
             <Head>
                 <title>Flare</title>
                 <meta name="description" content="Flare — Porticode 5.0" />
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                 <meta name="theme-color" content={themeColor} />;
             </Head>
 
-            <div className="flex h-screen flex-col">
+            <div className="flex h-screen max-w-lg flex-col">
                 <header className="relative flex items-center bg-gray-900 py-2">
                     <button
                         className="mx-2 flex h-12 w-12 items-center justify-center self-start "
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                 <h1 className="border-b-[6px] border-cyan-600 bg-gray-900 px-4 py-4 text-2xl font-semibold text-white">
                     UCL Events For You
                 </h1>
-                <main className="relative flex-grow overflow-scroll bg-white px-6 pt-6 pb-32">
+                <main className="flex-grow overflow-scroll bg-white px-6 pt-6 pb-32">
                     {eventsList.map((event) => {
                         const date = new Date(event.date);
                         return (
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
                         );
                     })}
                 </main>
-                <div className="absolute inset-x-0 bottom-0 flex w-full justify-center border-t bg-white pb-10 pt-6">
+                <div className="absolute inset-x-0 bottom-0 mx-auto flex w-full max-w-lg justify-center border-t bg-white pb-10 pt-6">
                     <Link href="/room/1">
                         <a className="rounded-lg bg-cyan-500 px-4 py-3 text-2xl font-bold text-white">
                             Join a Room
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
                     </Link>
                 </div>
                 <div
-                    className={`absolute inset-0 flex h-screen w-screen flex-col justify-between bg-white px-6 py-16 transition ${
+                    className={`absolute inset-0 mx-auto flex h-screen w-full max-w-lg flex-col justify-between bg-white px-6 py-16 transition ${
                         menu ? "" : "-translate-x-full"
                     }`}
                     onClick={toggleMenu}
@@ -173,7 +173,7 @@ const Home: NextPage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

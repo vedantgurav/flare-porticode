@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     if (!event) return <></>;
 
     return (
-        <>
+        <div className="relative mx-auto max-w-lg overflow-hidden">
             <Head>
                 <meta name="theme-color" content={themeColor} />;
             </Head>
@@ -175,7 +175,7 @@ const Home: NextPage = () => {
                     </div>
                 </main>
                 <div
-                    className={`absolute inset-0 flex h-screen w-screen flex-col justify-between bg-white px-6 py-16 transition ${
+                    className={`absolute inset-0 mx-auto flex h-screen w-screen max-w-lg flex-col justify-between bg-white px-6 py-16 transition ${
                         menu ? "" : "-translate-x-full"
                     }`}
                     onClick={toggleMenu}
@@ -248,7 +248,7 @@ const Home: NextPage = () => {
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
